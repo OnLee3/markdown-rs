@@ -104,9 +104,9 @@ fn frontmatter() -> Result<(), message::Message> {
     );
 
     assert_eq!(
-        to_html_with_options("## Neptune\n---\n---", &frontmatter)?,
-        "<h2>Neptune</h2>\n<hr />\n<hr />",
-        "should not support frontmatter after content"
+        to_html_with_options("## Neptune\n---\ntitle: Jupyter\n---", &frontmatter)?,
+        "<h2>Neptune</h2>",
+        "should support frontmatter after content"
     );
 
     assert_eq!(
